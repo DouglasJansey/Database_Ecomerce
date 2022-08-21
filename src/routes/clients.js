@@ -1,0 +1,11 @@
+import { Router } from 'express';
+
+import clientController from '../controllers/ClientController';
+
+const router = new Router();
+
+router.get('/', clientController.index);
+router.post('/', clientController.store);
+router.delete('/:id', clientController.delete);
+
+export default router;
