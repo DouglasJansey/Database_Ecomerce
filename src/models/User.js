@@ -2,7 +2,7 @@
 import Sequelize, { Model } from 'sequelize';
 import bcryptjs from 'bcryptjs';
 
-export default class Client extends Model {
+export default class User extends Model {
   static init(sequelize) {
     super.init({
       name: {
@@ -58,5 +58,15 @@ export default class Client extends Model {
       }
     });
     return this;
+  }
+
+  passwordValidate(password) {
+    return bcryptjs.compare(password, this.password_hash);
+  }
+
+  static associate(models) {
+    this.hasOne(models.Photo, { foreignKey: 'user_id' });
+    this.hasMany(models.Address, { foreignKey: 'id_user' });
+    this.hasMany(models.Phone, { foreignKey: 'id_user' });
   }
 }

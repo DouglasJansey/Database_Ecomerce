@@ -1,0 +1,62 @@
+/* eslint-disable camelcase */
+/* eslint-disable class-methods-use-this */
+import multer from 'multer';
+import multerConfig from '../config/multer';
+import Photo from '../models/Photo';
+
+const upload = multer(multerConfig).single('photo');
+
+class PhotoController {
+  store(req, res) {
+    return upload(req, res, async (error) => {
+      if (error) {
+        return res.status(400).json({
+          errors: [error.code],
+        });
+      }
+      try {
+        const { originalname, filename } = req.file;
+        const { user_id } = req.body;
+        const userIdExist = await Photo.findOne({ where: { user_id } });
+        if (userIdExist) {
+          return res.status(400).json({
+            errors: ['Usuário só pode ter uma foto'],
+          });
+        }
+        const photo = await Photo.create({ originalname, filename, user_id });
+        return res.json(photo);
+      } catch (err) {
+        return res.status(400).json({
+          errors: err,
+        });
+      }
+    });
+  }
+
+  storePhotoProducts(req, res) {
+    return upload(req, res, async (error) => {
+      if (error) {
+        return res.status(400).json({
+          errors: [error.code],
+        });
+      }
+      try {
+        const { originalname, filename } = req.file;
+        const { user_id } = req.body;
+        const userIdExist = await Photo.findOne({ where: { user_id } });
+        if (userIdExist) {
+          return res.status(400).json({
+            errors: ['Usuário só pode ter uma foto'],
+          });
+        }
+        const photo = await Photo.create({ originalname, filename, user_id });
+        return res.json(photo);
+      } catch (err) {
+        return res.status(400).json({
+          errors: err,
+        });
+      }
+    });
+  }
+}
+export default new PhotoController();

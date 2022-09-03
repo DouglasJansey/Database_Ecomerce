@@ -1,0 +1,58 @@
+/* eslint-disable class-methods-use-this */
+import User from '../models/User';
+import Photo from '../models/Photo';
+import Address from '../models/Address';
+import Phone from '../models/Phone';
+
+class UserController {
+  async store(req, res) {
+    try {
+      const newUser = await User.create(req.body);
+      return res.json(newUser);
+    } catch (err) {
+      return res.status(400).json({
+        errors: err,
+      });
+    }
+  }
+
+  async index(req, res) {
+    try {
+      const users = await User.findAll({
+        attributes: ['id', 'name', 'email', 'cpf', 'gender'],
+        order: [['id', 'DESC']],
+        include: [{
+          model: Photo,
+          attributes: ['filename'],
+        }, {
+          model: Address,
+          attributes: ['street', 'street_number', 'city'],
+        }, {
+          model: Phone,
+          attributes: ['ddd_cel', 'cel_number', 'ddd_phone', 'phone_number'],
+        }],
+      });
+      return res.json(users);
+    } catch (err) {
+      return res.status(400).json({
+        errors: err,
+      });
+    }
+  }
+
+  async delete(req, res) {
+    try {
+      const user = await User.findByPk(req.userId);
+      if (!user) {
+        return res.status(400).json({
+          errors: ['Usuário não existe!'],
+        });
+      }
+      user.destroy();
+      return res.json('Usuário deletado!');
+    } catch (e) {
+      return res.json('error');
+    }
+  }
+}
+export default new UserController();
