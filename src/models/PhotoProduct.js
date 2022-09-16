@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import Sequelize, { Model } from 'sequelize';
+import appConfig from '../config/appConfig';
 
 export default class PhotoProduct extends Model {
   static init(sequelize) {
@@ -22,6 +23,12 @@ export default class PhotoProduct extends Model {
           },
         },
       },
+      url: {
+        type: Sequelize.VIRTUAL,
+        get() {
+          return `${appConfig.url}/images/${this.getDataValue('filename')}`;
+        },
+      },
     }, {
       sequelize,
       tableName: 'photo_product',
@@ -30,6 +37,6 @@ export default class PhotoProduct extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Products, { foreignKey: 'product_id' });
+    this.hasOne(models.Products, { foreignKey: 'product_id' });
   }
 }

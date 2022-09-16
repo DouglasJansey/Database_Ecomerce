@@ -8,19 +8,19 @@ module.exports = {
         primaryKey: true,
       },
       ddd_cel: {
-        type: Sequelize.INTEGER(2),
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       cel_number: {
-        type: Sequelize.INTEGER(9),
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       phone_number: {
-        type: Sequelize.INTEGER(8),
+        type: Sequelize.INTEGER,
         allowNull: true,
       },
       ddd_phone: {
-        type: Sequelize.INTEGER(2),
+        type: Sequelize.INTEGER,
         allowNull: true,
       },
       id_user: {

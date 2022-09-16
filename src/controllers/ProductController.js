@@ -12,12 +12,12 @@ class ProductController {
   async index(req, res) {
     try {
       const product = await Products.findAll({
-        attributes: ['name', 'description', 'category', 'sub_category', 'type',
+        attributes: ['id', 'name', 'description', 'category', 'sub_category', 'type',
           'price', 'old_price', 'quantity'],
         order: [['id', 'DESC']],
         include: {
           model: PhotoProduct,
-          attributes: ['filename', 'color'],
+          attributes: ['url', 'filename', 'color'],
         },
       });
       return res.json(product);

@@ -14,11 +14,11 @@ export default class Phone extends Model {
       },
       ddd_phone: {
         type: Sequelize.INTEGER(2),
-        defaultValue: '',
+        defaultValue: null,
       },
       phone_number: {
         type: Sequelize.INTEGER(8),
-        defaultValue: '',
+        defaultValue: null,
       },
       id_user: {
         type: Sequelize.INTEGER,

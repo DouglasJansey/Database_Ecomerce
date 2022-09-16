@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
+import { resolve } from 'path';
 
 dotenv.config({ path: '.env' });
-
 import express from 'express';
 import cors from 'cors';
 import users from './src/routes/users';
@@ -19,6 +19,7 @@ const corsOptions = {
   origin: '*',
   credentials: true, // access-control-allow-credentials:true
   optionSuccessStatus: 200,
+
 };
 
 class App {
@@ -32,6 +33,7 @@ class App {
     this.app.use(cors(corsOptions));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {

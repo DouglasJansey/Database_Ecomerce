@@ -26,9 +26,5 @@ class PhotoProductController {
       }
     });
   }
-
-  index(req, res) {
-    res.json({ path: 'ok' });
-  }
 }
 export default new PhotoProductController();
