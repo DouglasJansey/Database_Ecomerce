@@ -23,6 +23,10 @@ export default class PhotoProduct extends Model {
           },
         },
       },
+      color: {
+        type: Sequelize.STRING,
+        defaultValue: '',
+      },
       url: {
         type: Sequelize.VIRTUAL,
         get() {

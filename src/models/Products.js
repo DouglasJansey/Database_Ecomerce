@@ -26,15 +26,15 @@ export default class Products extends Model {
       },
       price: {
         type: Sequelize.FLOAT,
-        defaultValue: '',
+        defaultValue: 0.0,
       },
       old_price: {
         type: Sequelize.FLOAT,
-        defaultValue: '',
+        defaultValue: 0.0,
       },
       quantity: {
         type: Sequelize.INTEGER,
-        defaultValue: '',
+        defaultValue: 0,
       },
     }, {
       sequelize,

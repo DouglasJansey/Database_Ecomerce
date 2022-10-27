@@ -10,7 +10,7 @@ export default class Phone extends Model {
       },
       cel_number: {
         type: Sequelize.INTEGER(9),
-        defaultValue: '',
+        defaultValue: null,
       },
       ddd_phone: {
         type: Sequelize.INTEGER(2),

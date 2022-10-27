@@ -39,6 +39,10 @@ export default class User extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
       },
+      user_id: {
+        type: Sequelize.INTEGER,
+        defaultValue: '',
+      },
       password: {
         type: Sequelize.VIRTUAL,
         defaultValue: '',
@@ -51,6 +55,7 @@ export default class User extends Model {
       },
     }, {
       sequelize,
+      tableName: 'users',
     });
     this.addHook('beforeSave', async (user) => {
       if (user.password) {
@@ -65,8 +70,8 @@ export default class User extends Model {
   }
 
   static associate(models) {
-    this.hasOne(models.Photo, { foreignKey: 'user_id' });
-    this.hasMany(models.Address, { foreignKey: 'id_user' });
-    this.hasMany(models.Phone, { foreignKey: 'id_user' });
+    if (models.Photo) this.hasOne(models.Photo, { foreignKey: 'user_id' });
+    if (models.Address) this.hasMany(models.Address, { foreignKey: 'id_user' });
+    if (models.Phone) this.hasMany(models.Phone, { foreignKey: 'id_user' });
   }
 }

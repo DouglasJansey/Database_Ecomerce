@@ -23,5 +23,24 @@ class AddressController {
       });
     }
   }
+
+  async update(req, res) {
+    try {
+      if (!req.userId) return res.status(400).json({ erros: ['Não enviado!'] });
+
+      const address = await Address.findOne({ where: { id_user: req.userId } }, {
+        attributes: ['street', 'city', 'street_number', 'id_user'],
+        order: [['id', 'DESC']],
+
+      });
+
+      if (!address) return res.status(400).json({ errors: ['Usuário não existe!'] });
+
+      const newAddress = await address.update(req.body);
+      return res.json(newAddress);
+    } catch (e) {
+      return res.json(e);
+    }
+  }
 }
 export default new AddressController();

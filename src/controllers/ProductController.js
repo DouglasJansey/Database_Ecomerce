@@ -27,5 +27,23 @@ class ProductController {
       });
     }
   }
+
+  async delete(req, res) {
+    try {
+      const product = await Products.findByPk(req.params.id, {
+        attributes: ['id'],
+      });
+
+      if (!product) {
+        return res.status(400).json({
+          errors: ['Usuário não existe!'],
+        });
+      }
+      product.destroy();
+      return res.json('Produto deletado!');
+    } catch (e) {
+      return res.json(e);
+    }
+  }
 }
 export default new ProductController();
