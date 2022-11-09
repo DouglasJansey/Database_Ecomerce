@@ -6,6 +6,6 @@ import loginrequired from '../middleware/loginRequired';
 const router = new Router();
 
 router.post('/', addressController.store);
-router.post('/:id', loginrequired, addressController.update);
+router.put('/', loginrequired, addressController.update);
 
 export default router;

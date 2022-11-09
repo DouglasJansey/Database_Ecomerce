@@ -1,3 +1,5 @@
+/* eslint-disable no-sequences */
+/* eslint-disable radix */
 /* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
 import Products from '../models/Products';
@@ -11,10 +13,13 @@ class ProductController {
 
   async index(req, res) {
     try {
-      const product = await Products.findAll({
-        attributes: ['id', 'name', 'description', 'category', 'sub_category', 'type',
-          'price', 'old_price', 'quantity'],
-        order: [['id', 'DESC']],
+      const { max, page } = req.query;
+      const skip = (page * max) - max;
+
+      const product = await Products.findAndCountAll({
+        limit: parseInt(max) || undefined,
+        offset: parseInt(skip) || undefined,
+        attributes: ['id', 'name', 'description', 'category', 'sub_category', 'type', 'price', 'old_price', 'quantity'],
         include: {
           model: PhotoProduct,
           attributes: ['url', 'filename', 'color'],

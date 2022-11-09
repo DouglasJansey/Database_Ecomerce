@@ -46,5 +46,6 @@ export default class Products extends Model {
 
   static associate(models) {
     this.hasMany(models.PhotoProduct, { foreignKey: 'product_id' });
+    this.hasMany(models.Pedidos, { foreignKey: 'id_product' });
   }
 }

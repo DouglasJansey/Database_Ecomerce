@@ -73,5 +73,6 @@ export default class User extends Model {
     if (models.Photo) this.hasOne(models.Photo, { foreignKey: 'user_id' });
     if (models.Address) this.hasMany(models.Address, { foreignKey: 'id_user' });
     if (models.Phone) this.hasMany(models.Phone, { foreignKey: 'id_user' });
+    if (models.Pedidos) this.hasMany(models.Pedidos, { foreignKey: 'id_user' });
   }
 }

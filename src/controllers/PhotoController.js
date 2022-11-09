@@ -39,13 +39,11 @@ class PhotoController {
       }
       try {
         const photo = await Photo.findOne({ where: { user_id: req.userId } });
-        if (!photo) return res.status(401).json('Não há usuário');
+        if (!photo) return res.status(401).json('Não há FOTO');
         const newPhoto = await photo.update(req.file);
         return res.json(newPhoto);
       } catch (err) {
-        return res.status(400).json({
-          errors: err,
-        });
+        return console.log(err);
       }
     });
   }

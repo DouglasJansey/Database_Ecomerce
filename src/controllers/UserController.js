@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable class-methods-use-this */
 import User from '../models/User';
 import Photo from '../models/Photo';
@@ -18,8 +19,9 @@ class UserController {
 
   async index(req, res) {
     try {
-      if (!req.params.id) return res.status(400).json({ erros: ['Não enviado!'] });
-      const users = await User.findByPk(req.params.id, {
+      if (!req.userId) return res.status(400).json({ erros: ['Não enviado!'] });
+      const users = await User.findOne({
+        where: { id: req.userId },
         attributes: ['id', 'name', 'email', 'cpf', 'gender'],
         order: [['id', 'DESC']],
         include: [{

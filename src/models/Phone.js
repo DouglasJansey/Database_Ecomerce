@@ -6,23 +6,23 @@ export default class Phone extends Model {
     super.init({
       ddd_cel: {
         type: Sequelize.INTEGER(2),
-        defaultValue: '',
+        defaultValue: 0,
       },
       cel_number: {
         type: Sequelize.INTEGER(9),
-        defaultValue: null,
+        defaultValue: 0,
       },
       ddd_phone: {
         type: Sequelize.INTEGER(2),
-        defaultValue: null,
+        defaultValue: 0,
       },
       phone_number: {
         type: Sequelize.INTEGER(8),
-        defaultValue: null,
+        defaultValue: 0,
       },
       id_user: {
         type: Sequelize.INTEGER,
-        defaultValue: '',
+        defaultValue: 0,
       },
     }, {
       sequelize,

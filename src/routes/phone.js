@@ -6,6 +6,6 @@ import loginrequired from '../middleware/loginRequired';
 const router = new Router();
 
 router.post('/', phoneController.store);
-router.post('/:id', loginrequired, phoneController.update);
+router.put('/', loginrequired, phoneController.update);
 
 export default router;

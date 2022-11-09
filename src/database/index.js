@@ -6,8 +6,9 @@ import Address from '../models/Address';
 import Products from '../models/Products';
 import PhotoProducts from '../models/PhotoProduct';
 import Phones from '../models/Phone';
+import Pedidos from '../models/Pedidos';
 
-const models = [Users, Photo, Address, Products, PhotoProducts, Phones];
+const models = [Users, Photo, Address, Products, PhotoProducts, Phones, Pedidos];
 
 const connection = new Sequelize(databaseConfig);
 

@@ -11,6 +11,7 @@ import address from './src/routes/address';
 import product from './src/routes/product';
 import photoProduct from './src/routes/photoProducts';
 import phone from './src/routes/phone';
+import pedido from './src/routes/pedidos';
 
 import './src/database';
 
@@ -44,6 +45,7 @@ class App {
     this.app.use('/produtos', product);
     this.app.use('/produtos', photoProduct);
     this.app.use('/telefones', phone);
+    this.app.use('/pedidos', pedido);
   }
 }
 export default new App().app;
