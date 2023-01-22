@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js", 
   "homepage": "https://DouglasJansey.github.io/Database_Ecomerce",
-  "type": "module",
-  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
