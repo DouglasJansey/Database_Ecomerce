@@ -2,11 +2,16 @@
   "name": "database",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js", 
+  "homepage": "https://DouglasJansey.github.io/Database_Ecomerce",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +29,7 @@
     "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "gh-pages": "^5.0.0",
     "nodemon": "^2.0.19",
     "sequelize-cli": "^6.4.1",
     "sucrase": "^3.25.0"

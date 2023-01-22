@@ -1,4 +1,5 @@
-import app from './app';
+/* eslint-disable import/extensions */
+import app from './src/app.js';
 
 app.listen(process.env.PORT, () => {
   console.log(process.env.PORT);
