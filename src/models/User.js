@@ -39,10 +39,6 @@ export default class User extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        defaultValue: '',
-      },
       password: {
         type: Sequelize.VIRTUAL,
         defaultValue: '',

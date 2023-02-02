@@ -20,7 +20,7 @@ class UserController {
   async index(req, res) {
     try {
       if (!req.userId) return res.status(400).json({ erros: ['Não enviado!'] });
-      const users = await User.findOne({
+      const users = await User.findAll({
         where: { id: req.userId },
         attributes: ['id', 'name', 'email', 'cpf', 'gender'],
         order: [['id', 'DESC']],
