@@ -27,6 +27,22 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      height: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      width: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      length: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      weight: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       price: {
         type: Sequelize.FLOAT,
         allowNull: false,

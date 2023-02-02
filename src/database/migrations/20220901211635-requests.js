@@ -15,6 +15,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
+      quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
       id_product: {
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -28,12 +32,6 @@ module.exports = {
       id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'users',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
       },
       created_at: {
         type: Sequelize.DATE,
