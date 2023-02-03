@@ -1,3 +1,3 @@
 export default {
-  url: process.env.PORT || 'http://localhost:3005',
+  url: process.env.URL || 'http://localhost:3005',
 };
