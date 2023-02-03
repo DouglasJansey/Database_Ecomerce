@@ -36,6 +36,22 @@ export default class Products extends Model {
         type: Sequelize.INTEGER,
         defaultValue: 0,
       },
+      height: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      width: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      length: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      weight: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
     }, {
       sequelize,
       tableName: 'products',

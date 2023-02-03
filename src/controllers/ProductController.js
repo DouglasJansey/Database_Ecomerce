@@ -19,7 +19,8 @@ class ProductController {
       const product = await Products.findAndCountAll({
         limit: parseInt(max) || undefined,
         offset: parseInt(skip) || undefined,
-        attributes: ['id', 'name', 'description', 'category', 'sub_category', 'type', 'price', 'old_price', 'quantity'],
+        attributes: ['id', 'name', 'description', 'category', 'sub_category', 'type', 'height',
+          'width', 'length', 'weight', 'price', 'old_price', 'quantity'],
         include: {
           model: PhotoProduct,
           attributes: ['url', 'filename', 'color'],
