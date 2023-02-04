@@ -25,7 +25,7 @@ class PhotoProductController {
         return res.json(photo);
       } catch (err) {
         return res.status(400).json({
-          errors: err,
+          err,
         });
       }
     });
