@@ -20,4 +20,3 @@ export default {
     },
   }),
 };
-console.log(__filename)

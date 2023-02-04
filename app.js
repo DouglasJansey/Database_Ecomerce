@@ -20,10 +20,11 @@ import './src/database/index.js';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const corsOptions = {
-
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
   origin: '*',
   credentials: true, // access-control-allow-credentials:true
   optionSuccessStatus: 200,
+  'Content-Type':'FormData/'
 };
 
 class App {

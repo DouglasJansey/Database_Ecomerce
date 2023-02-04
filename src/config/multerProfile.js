@@ -21,4 +21,3 @@ export default {
     },
   }),
 };
-console.log(resolve(__filename, '..', '..', '..', 'uploads','imagesUser'));

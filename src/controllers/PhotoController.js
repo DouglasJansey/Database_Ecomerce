@@ -30,6 +30,19 @@ class PhotoController {
       }
     });
   }
+ async index(req, res) {
+      try {
+        const photo = await Photo.findOne({ where: { user_id: req.userId },
+          attributes: ['id', 'originalname', 'filename', 'url'],
+         });
+        return res.json(photo);
+      } catch (err) {
+        return res.status(400).json({
+          errors: err,
+        });
+      }
+    
+  }
 
   update(req, res) {
     return upload(req, res, async (error) => {
