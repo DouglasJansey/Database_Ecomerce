@@ -5,13 +5,12 @@ import multerProfile from '../config/multerProfile.js';
 import Photo from '../models/Photo.js';
 
 const upload = multer(multerProfile).single('photo');
-// const update = multer(multerProfile).single('newPhoto');
 
 class PhotoController {
   store(req, res) {
     return upload(req, res, async (error) => {
       if (error) {
-        return res.status(400).json(console.log(error));
+        return res.status(400).json(console.log('Erro aqui', error));
       }
       try {
         const { originalname, filename } = req.file;

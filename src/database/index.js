@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import databaseConfig from '../config/database.js';
+import database from '../config/database.js';
 import Users from '../models/User.js';
 import Photo from '../models/Photo.js';
 import Address from '../models/Address.js';
@@ -10,7 +10,7 @@ import Pedidos from '../models/Pedidos.js';
 
 const models = [Users, Photo, Address, Products, PhotoProducts, Phones, Pedidos];
 
-const connection = new Sequelize(databaseConfig);
-
+const connection = new Sequelize(database);
+console.log(database);
 models.map((model) => model.init(connection));
 models.map((model) => model.associate && model.associate(connection.models));
