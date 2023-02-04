@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import productController from '../controllers/ProductController';
-import loginRequired from '../middleware/loginRequired';
-import search from '../middleware/searchendpoint';
+import productController from '../controllers/ProductController.js';
+import loginRequired from '../middleware/loginRequired.js';
+import search from '../middleware/searchendpoint.js';
 
 const router = new Router();
 

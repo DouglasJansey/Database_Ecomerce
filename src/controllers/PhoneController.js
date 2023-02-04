@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
-import Phone from '../models/Phone';
+import Phone from '../models/Phone.js';
 
 class PhoneController {
   async store(req, res) {

@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
-import Address from '../models/Address';
+import Address from '../models/Address.js';
 
 class AddressController {
   async store(req, res) {

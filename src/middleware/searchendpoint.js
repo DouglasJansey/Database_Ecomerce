@@ -1,7 +1,7 @@
 /* eslint-disable radix */
 import { Op } from 'sequelize';
-import Products from '../models/Products';
-import PhotoProduct from '../models/PhotoProduct';
+import Products from '../models/Products.js';
+import PhotoProduct from '../models/PhotoProduct.js';
 
 export default async (req, res, next) => {
   if (!req.query.search) return next();

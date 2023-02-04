@@ -3,22 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://DouglasJansey.github.io/Database_Ecomerce",
   "scripts": {
     "dev": "nodemon index.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
+    "loader": "^2.1.1",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.3"

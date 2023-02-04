@@ -1,12 +1,12 @@
 import Sequelize from 'sequelize';
-import databaseConfig from '../config/database';
-import Users from '../models/User';
-import Photo from '../models/Photo';
-import Address from '../models/Address';
-import Products from '../models/Products';
-import PhotoProducts from '../models/PhotoProduct';
-import Phones from '../models/Phone';
-import Pedidos from '../models/Pedidos';
+import databaseConfig from '../config/database.js';
+import Users from '../models/User.js';
+import Photo from '../models/Photo.js';
+import Address from '../models/Address.js';
+import Products from '../models/Products.js';
+import PhotoProducts from '../models/PhotoProduct.js';
+import Phones from '../models/Phone.js';
+import Pedidos from '../models/Pedidos.js';
 
 const models = [Users, Photo, Address, Products, PhotoProducts, Phones, Pedidos];
 

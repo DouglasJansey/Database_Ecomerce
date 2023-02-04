@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import Sequelize, { Model } from 'sequelize';
+import appConfig from '../config/appConfig.js';
 
 export default class PhotoProduct extends Model {
   static init(sequelize) {
@@ -29,7 +30,7 @@ export default class PhotoProduct extends Model {
       url: {
         type: Sequelize.VIRTUAL,
         get() {
-          return `https://repo-api-3zjo.onrender.com/images/${this.getDataValue('filename')}`;
+          return `${appConfig}/images/${this.getDataValue('filename')}`;
         },
       },
     }, {

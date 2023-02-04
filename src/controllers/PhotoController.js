@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
 import multer from 'multer';
-import multerProfile from '../config/multerProfile';
-import Photo from '../models/Photo';
+import multerProfile from '../config/multerProfile.js';
+import Photo from '../models/Photo.js';
 
 const upload = multer(multerProfile).single('photo');
 // const update = multer(multerProfile).single('newPhoto');

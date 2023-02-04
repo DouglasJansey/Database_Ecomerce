@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
 import multer from 'multer';
-import multerConfig from '../config/multer';
-import PhotoProduct from '../models/PhotoProduct';
+import multerConfig from '../config/multer.js';
+import PhotoProduct from '../models/PhotoProduct.js';
 
 const upload = multer(multerConfig).single('photoProduct');
 

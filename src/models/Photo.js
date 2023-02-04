@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import Sequelize, { Model } from 'sequelize';
-import appConfig from '../config/appConfig';
+import appConfig from '../config/appConfig.js';
 
 export default class Photo extends Model {
   static init(sequelize) {

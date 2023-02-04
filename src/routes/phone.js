@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import phoneController from '../controllers/PhoneController';
-import loginrequired from '../middleware/loginRequired';
+import phoneController from '../controllers/PhoneController.js';
+import loginrequired from '../middleware/loginRequired.js';
 
 const router = new Router();
 

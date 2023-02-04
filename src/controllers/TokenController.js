@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
-import Photo from '../models/Photo';
-import Address from '../models/Address';
-import Phone from '../models/Phone';
+import User from '../models/User.js';
+import Photo from '../models/Photo.js';
+import Address from '../models/Address.js';
+import Phone from '../models/Phone.js';
 
 class TokenController {
   // eslint-disable-next-line class-methods-use-this

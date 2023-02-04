@@ -1,9 +1,9 @@
 /* eslint-disable radix */
 /* eslint-disable class-methods-use-this */
-import User from '../models/User';
-import Photo from '../models/Photo';
-import Address from '../models/Address';
-import Phone from '../models/Phone';
+import User from '../models/User.js';
+import Photo from '../models/Photo.js';
+import Address from '../models/Address.js';
+import Phone from '../models/Phone.js';
 
 class UserController {
   async store(req, res) {

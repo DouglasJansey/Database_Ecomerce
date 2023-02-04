@@ -2,8 +2,8 @@
 /* eslint-disable radix */
 /* eslint-disable camelcase */
 /* eslint-disable class-methods-use-this */
-import Products from '../models/Products';
-import PhotoProduct from '../models/PhotoProduct';
+import Products from '../models/Products.js';
+import PhotoProduct from '../models/PhotoProduct.js';
 
 class ProductController {
   async store(req, res) {

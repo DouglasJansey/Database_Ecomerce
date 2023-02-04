@@ -1,13 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
-import Pedidos from '../models/Pedidos';
-import User from '../models/User';
-import Photo from '../models/Photo';
-import Address from '../models/Address';
-import Phone from '../models/Phone';
-import Products from '../models/Products';
-import PhotoProduct from '../models/PhotoProduct';
+import Pedidos from '../models/Pedidos.js';
 
 class PedidosController {
   async store(req, res) {

@@ -1,10 +1,5 @@
-/* eslint-disable quotes */
-const dotenv = require("dotenv");
-
-dotenv.config({ path: ".env" });
-
-module.exports = {
-  dialect: "mysql",
+export default {
+  dialect: 'mysql',
   host: process.env.HOST_DB,
   port: process.env.PORT_DB,
   username: process.env.USERNAME_DB,
@@ -14,7 +9,7 @@ module.exports = {
     timestamps: true,
     underscored: true,
     underscoredAll: true,
-    createdAt: "created_at",
-    updatedAt: "updated_at",
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   },
 };
