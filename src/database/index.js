@@ -11,6 +11,5 @@ import Pedidos from '../models/Pedidos.js';
 const models = [Users, Photo, Address, Products, PhotoProducts, Phones, Pedidos];
 
 const connection = new Sequelize(database);
-console.log(database);
 models.map((model) => model.init(connection));
 models.map((model) => model.associate && model.associate(connection.models));
