@@ -21,4 +21,4 @@ export default {
     },
   }),
 };
-console.log(__filename);
+console.log(resolve(__filename, '..', '..', '..', 'uploads','imagesUser'));
