@@ -13,15 +13,18 @@ class PhotoController {
         return res.status(400).json(console.log('Erro aqui', error));
       }
       try {
-        const { originalname, filename } = req.file;
-        const { user_id } = req.body;
+        const {
+          originalname, user_id, filename, display_url,
+        } = req.body;
         const userIdExist = await Photo.findOne({ where: { user_id } });
         if (userIdExist) {
           return res.status(400).json({
             errors: ['Usuário só pode ter uma foto'],
           });
         }
-        const photo = await Photo.create({ originalname, filename, user_id });
+        const photo = await Photo.create({
+          originalname, user_id, filename, display_url,
+        });
         return res.json(photo);
       } catch (err) {
         return res.status(400).json({
@@ -30,18 +33,19 @@ class PhotoController {
       }
     });
   }
- async index(req, res) {
-      try {
-        const photo = await Photo.findOne({ where: { user_id: req.userId },
-          attributes: ['id', 'originalname', 'filename', 'url'],
-         });
-        return res.json(photo);
-      } catch (err) {
-        return res.status(400).json({
-          errors: err,
-        });
-      }
-    
+
+  async index(req, res) {
+    try {
+      const photo = await Photo.findOne({
+        where: { user_id: req.userId },
+        attributes: ['id', 'originalname', 'filename', 'display_url'],
+      });
+      return res.json(photo);
+    } catch (err) {
+      return res.status(400).json({
+        errors: err,
+      });
+    }
   }
 
   update(req, res) {
@@ -51,8 +55,8 @@ class PhotoController {
       }
       try {
         const photo = await Photo.findOne({ where: { user_id: req.userId } });
-        if (!photo) return res.status(401).json('Não há FOTO');
-        const newPhoto = await photo.update(req.file);
+        //  if (!photo) return res.status(401).json('Não há FOTO');
+        const newPhoto = await photo.update(req.body);
         return res.json(newPhoto);
       } catch (err) {
         return console.log(err);

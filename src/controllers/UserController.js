@@ -26,7 +26,7 @@ class UserController {
         order: [['id', 'DESC']],
         include: [{
           model: Photo,
-          attributes: ['url', 'filename'],
+          attributes: ['display_url', 'filename'],
         }, {
           model: Address,
           attributes: ['street', 'street_number', 'city'],

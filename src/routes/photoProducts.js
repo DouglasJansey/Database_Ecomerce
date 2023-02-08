@@ -6,6 +6,6 @@ import loginrequired from '../middleware/loginRequired.js';
 const router = new Router();
 
 router.post('/fotos', photoProductsController.store);
-router.post('/fotos/:id', loginrequired, photoProductsController.update);
+router.put('/fotos/:id', loginrequired, photoProductsController.update);
 
 export default router;

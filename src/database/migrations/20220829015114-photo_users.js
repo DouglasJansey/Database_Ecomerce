@@ -9,11 +9,15 @@ module.exports = {
       },
       originalname: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+      },
+      display_url: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       filename: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       user_id: {
         type: Sequelize.INTEGER,

@@ -23,7 +23,7 @@ class ProductController {
           'width', 'length', 'weight', 'price', 'old_price', 'quantity'],
         include: {
           model: PhotoProduct,
-          attributes: ['url', 'filename', 'color'],
+          attributes: ['display_url', 'filename', 'color'],
         },
       });
       return res.json(product);

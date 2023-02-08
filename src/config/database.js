@@ -1,7 +1,7 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 dotenv.config({ path: '.env' });
-const database = {
+module.exports = {
   dialect: 'mysql',
   host: process.env.HOST_DB,
   port: process.env.PORT_DB,
@@ -16,4 +16,5 @@ const database = {
     updatedAt: 'updated_at',
   },
 };
-export default database;
+
+//export default database;

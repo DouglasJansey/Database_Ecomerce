@@ -15,13 +15,7 @@ class PhotoProductController {
         });
       }
       try {
-        const { originalname, filename } = req.file;
-        const { product_id } = req.body;
-        const { color } = req.body;
-
-        const photo = await PhotoProduct.create({
-          originalname, filename, color, product_id,
-        });
+        const photo = await PhotoProduct.create(req.body);
         return res.json(photo);
       } catch (err) {
         return res.status(400).json({
@@ -39,7 +33,7 @@ class PhotoProductController {
       try {
         // const { originalname, filename } = req.file;
         // const { user_id } = req.params.id;
-        const photo = await PhotoProduct.findOne({ where: { user_id: req.userId } });
+        const photo = await PhotoProduct.findOne({ where: { product_id: req.params } });
         if (!photo) return res.status(401).json('Não há usuário');
         const newPhoto = await photo.update(req.file);
         return res.json(newPhoto);

@@ -11,6 +11,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      display_url: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       filename: {
         type: Sequelize.STRING,
         allowNull: false,

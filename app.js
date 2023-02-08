@@ -18,7 +18,6 @@ import pedido from './src/routes/pedidos.js';
 
 import './src/database/index.js';
 
-const __filename = url.fileURLToPath(import.meta.url);
 const corsOptions = {
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
   origin: '*',
@@ -38,7 +37,7 @@ class App {
     this.app.use(cors(corsOptions));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__filename, 'uploads')));
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {

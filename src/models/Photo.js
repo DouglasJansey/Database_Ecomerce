@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import Sequelize, { Model } from 'sequelize';
-import appConfig from '../config/appConfig.js';
 
 export default class Photo extends Model {
   static init(sequelize) {
@@ -23,11 +22,9 @@ export default class Photo extends Model {
           },
         },
       },
-      url: {
-        type: Sequelize.VIRTUAL,
-        get() {
-          return `${appConfig.url}/imagesUser/${this.getDataValue('filename')}`;
-        },
+      display_url: {
+        type: Sequelize.STRING,
+        defaultValue: '',
       },
     }, {
       sequelize,
