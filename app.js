@@ -19,11 +19,11 @@ import pedido from './src/routes/pedidos.js';
 import './src/database/index.js';
 
 const corsOptions = {
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
   origin: '*',
   credentials: true, // access-control-allow-credentials:true
   optionSuccessStatus: 200,
-  'Content-Type':'FormData/'
+  'Content-Type': 'FormData/',
 };
 
 class App {
