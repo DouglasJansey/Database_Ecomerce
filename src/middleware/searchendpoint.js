@@ -6,12 +6,14 @@ import PhotoProduct from '../models/PhotoProduct.js';
 export default async (req, res, next) => {
   if (!req.query.search) return next();
   const {
-    search, value1, value2, teamname, max, page,
+    search, value1, value2, teamname, max, page, type,
   } = req.query;
   const skip = (page * max) - max;
   function getParamsOne(props) {
     if (props === 'price' && value1 && value2) return { price: { [Op.between]: [value1, value2] } };
     if (props === 'team' && teamname) return { name: teamname };
+    if (props === 'type' && type) return { type };
+    if (props === 'type' && type) return { type };
     return '';
   }
   try {
@@ -20,7 +22,7 @@ export default async (req, res, next) => {
       offset: parseInt(skip) || undefined,
       where: getParamsOne(search),
       attributes: ['id', 'name', 'description', 'category', 'sub_category', 'type', 'price', 'old_price', 'quantity',
-      'width', 'length', 'weight', 'height'],
+        'width', 'length', 'weight', 'height'],
       include: {
         model: PhotoProduct,
         attributes: ['display_url', 'filename', 'color'],
