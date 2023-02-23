@@ -15,6 +15,7 @@ import product from './src/routes/product.js';
 import photoProduct from './src/routes/photoProducts.js';
 import phone from './src/routes/phone.js';
 import pedido from './src/routes/pedidos.js';
+import frete from './src/routes/frete.js';
 
 import './src/database/index.js';
 
@@ -44,6 +45,7 @@ class App {
     this.app.use('/users', users);
     this.app.use('/tokens', token);
     this.app.use('/fotos', photo);
+    this.app.use('/frete', frete);
     this.app.use('/endereco', address);
     this.app.use('/produtos', product);
     this.app.use('/produtos', photoProduct);
