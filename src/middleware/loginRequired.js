@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export default (req, res, next) => {
   const { authorization } = req.headers;
+ 
   if (!authorization) {
     return res.status(401).json({
       errors: ['Precisa estar logado!'],
@@ -14,6 +15,7 @@ export default (req, res, next) => {
     const { id, email } = dados;
     req.userId = id;
     req.userEmail = email;
+
     return next();
   } catch (e) {
     return res.status(401).json({

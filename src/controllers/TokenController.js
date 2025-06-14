@@ -9,7 +9,7 @@ import Phone from '../models/Phone.js';
 class TokenController {
   // eslint-disable-next-line class-methods-use-this
   async store(req, res) {
-    const { email = ' ', password = ' ' } = req.body;
+    const { email, password} = req.body;
     if (!email || !password) {
       return res.status(401).json({
         errors: ['Credenciais inválidas!'],
@@ -42,7 +42,8 @@ class TokenController {
     }
     const { id } = user;
     const token = jwt.sign({ id, email }, process.env.SECRET_TOKEN, {
-      expiresIn: process.env.TOKEN_EXPIRATION,
+      expiresIn: process.env.TOKEN_EXPIRATION || '2h',
+      subject: String(id),
     });
     return res.json({
       token,
